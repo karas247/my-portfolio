@@ -1,0 +1,702 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Marck+Script&family=Alfa+Slab+One&family=Comfortaa:wght@500;700&display=swap');
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html, body {
+    min-height: 100%
+}
+
+body {
+    font-family: 'Lobster',cursive;
+    color: #000;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-attachment: fixed
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+img {
+    display: block;
+    max-width: 100%
+}
+
+/* фони */
+.bg-home {
+    background: radial-gradient(ellipse 45% 55% at 50% 55%,#ec62ee 0%,#f7a4f5 55%,#ffc9fa 100%)
+}
+
+.bg-about {
+    background: linear-gradient(180deg,#ffc9fa 0%,#d83cf0 100%)
+}
+
+.bg-skills {
+    background: linear-gradient(180deg,#c93cf0 0%,#e060ee 55%,#ffb8f8 100%)
+}
+
+.bg-portfolio {
+    background: linear-gradient(180deg,#ffbdf9 0%,#d612f5 100%)
+}
+
+.bg-contacts {
+    background: linear-gradient(180deg,#d012f6 0%,#e045f5 45%,#ffb4f8 100%)
+}
+
+/* перлинні візерунки по кутах */
+.pearl {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    width: clamp(110px,14vw,210px)
+}
+
+    .pearl.tl {
+        top: 0;
+        left: 0;
+        transform: scaleY(-1)
+    }
+
+    .pearl.tr {
+        top: 0;
+        right: 0; 
+        transform: scaleY(-1)
+    }
+
+    .pearl.bl {
+        bottom: 0;
+        left: 0;
+        transform: scaleY(1)
+    }
+
+    .pearl.br {
+        bottom: 0;
+        right: 0;
+        transform: scaleY(1)
+    }
+
+/* навігація */
+.nav {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 2rem .8rem
+}
+
+    .nav a {
+        flex: 0 1 auto;
+        min-width: 150px;
+        text-align: center;
+        font-size: clamp(1.4rem,2.5vw,2.3rem);
+        padding: .15rem 1.6rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg,#ffc3fa,#c93ae8);
+        transition: transform .2s
+    }
+
+        .nav a:hover {
+            transform: translateY(-2px)
+        }
+
+        .nav a.active {
+            background: linear-gradient(90deg,#d048ee,#c33be4);
+            color: #fff
+        }
+
+            .nav a.active::before, .nav a.active::after {
+                content: '★';
+                color: #55086f;
+                margin: 0 .35rem
+            }
+
+.bg-skills .nav a.active, .bg-portfolio .nav a.active {
+    background: linear-gradient(90deg,#c53ae8,#5b0a7c 50%,#c53ae8)
+}
+
+.navline {
+    position: relative;
+    z-index: 5;
+    height: 3px;
+    background: #7c0f8e;
+    margin: 0 2rem;
+    border-radius: 3px
+}
+
+    .navline::before, .navline::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #8a1a9c
+    }
+
+    .navline::before {
+        left: 0
+    }
+
+    .navline::after {
+        right: 0
+    }
+
+/* підписи-плашки */
+.tag {
+    font-family: 'Alfa Slab One',serif;
+    font-size: clamp(2rem,3.4vw,3.2rem);
+    background: linear-gradient(90deg,#fff,#ffd9fb);
+    padding: .1em .9em;
+    position: relative;
+    z-index: 2
+}
+
+    .tag.right {
+        border-radius: 14px 0 0 14px;
+        margin-left: auto;
+        width: max-content
+    }
+
+    .tag.left {
+        border-radius: 0 14px 14px 0;
+        width: max-content
+    }
+
+main {
+    position: relative;
+    z-index: 2
+}
+
+/* ГОЛОВНА */
+/* ГОЛОВНА */
+
+/* велика область, у якій усе лежить */
+.hero {
+    position: relative;
+    height: 700px;
+}
+
+    /* напис Portfolio */
+    .hero h1 {
+        position: absolute;
+        top: -30px;
+        width: 100%;
+        text-align: center;
+        font-family: 'Marck Script', cursive;
+        font-weight: 400;
+        font-size: 200px;
+    }
+
+    /* фото по центру */
+    .hero .photo {
+        position: absolute;
+        left: 50%;
+        margin-left: -300px;
+        bottom: 0;
+        width: 600px;
+    }
+
+/* ім'я: КІ зліва, РА справа, КАПУСТА внизу */
+.name {
+    position: absolute;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 130px;
+    color: #3a0050;
+}
+
+.name-ki {
+    left: 20%;
+    top: 290px;
+}
+
+.name-ra {
+    right: 20%;
+    top: 290px;
+}
+
+.name-kapusta {
+    width: 100%;
+    text-align: center;
+    bottom: 40px;
+    letter-spacing: 15px;
+}
+
+/* підпис IT студентка • 17 років • Україна */
+.facts {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+/* плашка Home */
+.home-tag {
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+/* ПРО МЕНЕ */
+/* ПРО МЕНЕ */
+.about-head {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem
+}
+
+.about {
+    display: grid;
+    grid-template-columns: minmax(230px,40%) 1fr;
+    gap: 2rem;
+    padding: 0 0 2rem;
+    align-items: end
+}
+
+    .about .photo {
+        align-self: end;
+        padding-left: 0
+    }
+
+        .about .photo img {
+            height: 90vh;
+            width: auto;
+            max-width: none;
+            margin-left: auto;
+            position: relative;
+            left: 90px
+        }
+
+    .about .content {
+        position: relative;
+        padding-top: 1rem
+    }
+
+    .about h2 {
+        font-size: clamp(3.5rem,6vw,6rem);
+        font-weight: 400;
+        line-height: 1;
+        margin: 0 0 .3rem .5rem
+    }
+
+    .about .card {
+        background: linear-gradient(180deg,#fac8f9,#fff 60%);
+        border-radius: 50px 0 0 50px;
+        padding: 1.8rem 2.5rem;
+        font-size: clamp(1.15rem,1.75vw,1.65rem);
+        line-height: 1.35
+    }
+
+        .about .card p + p {
+            margin-top: 1.8rem
+        }
+
+
+/* НАВИЧКИ */
+
+.skills {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0 60px;
+}
+
+/* ліва частина */
+.skills-left {
+    width: 45%;
+}
+
+    .skills-left .tag {
+        box-shadow: 0 18px 0 -12px #f4a8f4;
+    }
+
+.devices {
+    position: relative;
+    height: 560px;
+    margin-top: 30px;
+}
+
+.laptop {
+    position: absolute;
+    left: 60px;
+    top: 130px;
+    width: 460px;
+}
+
+.phone {
+    position: absolute;
+    left: 350px;
+    top: 40px;
+    width: 190px;
+}
+
+/* права частина */
+.skill-list {
+    width: 55%;
+    margin-top: 10px;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    height: 140px;
+    margin-bottom: 28px;
+    padding-left: 10px;
+    background: #ffc9fa;
+    border-radius: 14px 0 0 14px;
+    box-shadow: 0 12px 0 -2px #f09af0;
+}
+
+    .skill .ico {
+        width: 110px;
+        height: 110px;
+        flex: none;
+    }
+
+    .skill .name {
+        width: 260px;
+        margin-left: 115px;
+        align-self: flex-end;
+        padding-bottom: 8px;
+        font-size: 20px;
+    }
+
+.stars {
+    font-size: 62px;
+    letter-spacing: 12px;
+    color: #000;
+}
+
+    .stars .off {
+        color: #fff;
+    }
+/* ПОРТФОЛІО */
+.pf-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: .8rem 0 1rem
+}
+
+    .pf-head .num {
+        font-size: clamp(1.8rem,2.6vw,2.4rem);
+        margin-left: 3rem
+    }
+
+.pf-wrap {
+    width: min(1000px,80%);
+    margin: 0 auto;
+    padding-bottom: 1.5rem
+}
+
+    .pf-wrap img {
+        width: 100%;
+        height: auto
+    }
+
+.pf-num {
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 1.5rem 0 .8rem
+}
+
+/* КОНТАКТИ */
+.contacts {
+    position: relative;
+    min-height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column
+}
+
+    .contacts .tag {
+        margin-top: 1.5rem
+    }
+
+    .contacts .center {
+        flex: 1;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding-bottom: 3rem
+    }
+
+.handset {
+    position: absolute;
+    left: 12%;
+    top: 0;
+    width: clamp(50px,5vw,80px)
+}
+
+.msg {
+    font-family: 'Comfortaa',sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.3rem,2.2vw,2rem);
+    background: linear-gradient(90deg,#f6b4f4,#fff);
+    padding: .7rem 3rem;
+    border-radius: 999px;
+    position: relative;
+    transition: transform .2s
+}
+
+    .msg:hover {
+        transform: scale(1.04)
+    }
+
+    .msg .hand {
+        position: absolute;
+        right: -.3rem;
+        bottom: -1.9rem;
+        width: 2.6rem
+    }
+
+.socials {
+    display: flex;
+    gap: clamp(1.5rem,4vw,4rem)
+}
+
+    .socials img {
+        width: clamp(60px,7vw,105px);
+        transition: transform .2s
+    }
+
+    .socials a:hover img {
+        transform: translateY(-4px)
+    }
+
+@media (max-width:900px) {
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center
+    }
+
+        .nav a {
+            min-width: 0
+        }
+
+    .about, .skills {
+        grid-template-columns: 1fr
+    }
+}
+.contacts-text {
+    font-family: 'Lobster', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: #fff;
+    text-align: center;
+    line-height: 1.4;
+}
+
+
+
+/* =========================================
+   МОБІЛЬНА АДАПТАЦІЯ (для екранів до 768px)
+========================================= */
+@media (max-width: 768px) {
+    /* Навігація */
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+        .nav a {
+            width: 100%;
+            max-width: 250px;
+            min-width: 0;
+            font-size: 1.2rem;
+            padding: 0.4rem 1rem;
+        }
+
+    .navline {
+        margin: 0 1rem;
+    }
+
+    /* --- ГОЛОВНА (index.html) --- */
+    .hero {
+        height: auto;
+        min-height: 500px;
+        padding-bottom: 80px;
+    }
+
+        .hero h1 {
+            font-size: 90px;
+            top: -10px;
+        }
+
+        .hero .photo {
+            width: 280px;
+            margin-left: -140px;
+            bottom: 40px;
+        }
+
+    .name {
+        font-size: 60px;
+    }
+
+    .name-ki {
+        left: 10%;
+        top: 180px;
+    }
+
+    .name-ra {
+        right: 10%;
+        top: 180px;
+    }
+
+    .name-kapusta {
+        bottom: 10px;
+        letter-spacing: 5px;
+        font-size: 40px;
+    }
+
+    .facts {
+        font-size: 16px;
+        bottom: -20px;
+    }
+
+    /* --- ПРО МЕНЕ (about.html) --- */
+    .about {
+        grid-template-columns: 1fr;
+        padding: 0 1rem 2rem;
+    }
+
+        .about .photo img {
+            height: auto;
+            width: 70%;
+            max-width: 280px;
+            margin: 0 auto;
+            left: 0;
+        }
+
+        .about h2 {
+            text-align: center;
+            margin-left: 0;
+            font-size: 2.8rem;
+        }
+
+        .about .card {
+            border-radius: 30px;
+            padding: 1.2rem 1.5rem;
+            font-size: 1rem;
+        }
+
+    /* --- НАВИЧКИ (skills.html) --- */
+    .skills {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .skills-left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .devices {
+        height: 320px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .laptop {
+        width: 280px;
+        left: auto;
+        top: 20px;
+    }
+
+    .phone {
+        width: 110px;
+        left: auto;
+        right: 15%;
+        top: 140px;
+    }
+
+    .skill-list {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .skill {
+        height: auto;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 14px;
+        flex-wrap: wrap;
+    }
+
+        .skill .ico {
+            width: 60px;
+            height: 60px;
+        }
+
+        .skill .name {
+            width: auto;
+            margin-left: 15px;
+            font-size: 18px;
+            padding-bottom: 0;
+            align-self: center;
+        }
+
+    .stars {
+        font-size: 30px;
+        letter-spacing: 5px;
+        width: 100%;
+        text-align: right;
+        margin-top: -10px;
+    }
+
+    /* --- ПОРТФОЛІО (portfolio.html) --- */
+    .pf-wrap {
+        width: 95%;
+    }
+
+    .pf-head .num {
+        margin-left: 1rem;
+        font-size: 1.4rem;
+    }
+
+    /* --- КОНТАКТИ (contacts.html) --- */
+    .contacts .center {
+        gap: 1.5rem;
+        padding: 0 1rem 2rem;
+    }
+
+    .contacts-text {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+
+    .msg {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.5rem;
+        text-align: center;
+    }
+
+        .msg .hand {
+            width: 2rem;
+            bottom: -1.4rem;
+        }
+
+    .socials {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+        .socials img {
+            width: 50px;
+        }
+}
